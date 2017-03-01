@@ -1,0 +1,34 @@
+group 'springBootRabbitMQGradleTest'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+
+repositories {
+    maven {
+        url "http://localhost:8081/repository/yangai/"
+    }
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-amqp")
+    compile("springBootRabbitMQGradle:springBootRabbitmq:1.0")
+    compileOnly("org.projectlombok:lombok:1.16.10")
+    testCompile("junit:junit")
+}
